@@ -1,6 +1,6 @@
 package com.jeonghoon.crud_practice.model.entity;
 
-import com.jeonghoon.crud_practice.model.dto.MemberDto;
+import com.jeonghoon.crud_practice.model.dto.UserDto;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,40 +9,40 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "member")
+@Table(name = "user")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class MemberEntity extends BaseTime{
+public class UserEntity extends BaseTime{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "int unsigned")
-    private int member_pk;
+    private int user_pk;
     @Column(columnDefinition = "varchar(30) not null unique")
-    private String member_id;
+    private String user_id;
     @Column(columnDefinition = "varchar(100) not null")
-    private String member_pwd;
+    private String user_pwd;
     @Column(columnDefinition = "varchar(50) not null unique")
-    private String member_nickname;
+    private String user_nickname;
     @Column(columnDefinition = "varchar(50) not null unique")
-    private String member_email;
+    private String user_email;
     @Column(columnDefinition = "enum('USER', 'OWNER', 'ADMIN') not null")
-    private String member_role;
+    private String user_role;
     @Column(columnDefinition = "varchar(100)")
-    private String member_address1;
+    private String user_address1;
     @Column(columnDefinition = "varchar(100)")
-    private String member_address2;
+    private String user_address2;
 
-    public MemberDto toDto(){
-        return MemberDto.builder()
-                .member_pk(this.member_pk)
-                .member_id(this.member_id)
-                .member_nickname(this.member_nickname)
-                .member_email(this.member_email)
-                .member_role(this.member_role)
-                .member_address1(this.member_address1)
-                .member_address2(this.member_address2)
+    public UserDto toDto(){
+        return UserDto.builder()
+                .user_pk(this.user_pk)
+                .user_id(this.user_id)
+                .user_nickname(this.user_nickname)
+                .user_email(this.user_email)
+                .user_role(this.user_role)
+                .user_address1(this.user_address1)
+                .user_address2(this.user_address2)
                 .create_date(this.getCreate_date())
                 .update_date(this.getUpdate_date())
                 .build();
