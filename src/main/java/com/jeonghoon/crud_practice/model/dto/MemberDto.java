@@ -13,12 +13,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MemberDto {
     private int mno;
-
+    private String mid;
+    private String mpwd;
+    private String mnickname;
+    private String memail;
+    private String mrole;
+    private String maddress1;
+    private String maddress2;
 
 
     public MemberEntity toEntity(){
         return MemberEntity.builder()
                 .mno(this.mno)
+                .mid(this.mid)
+                .mnickname(this.mnickname)
+                .memail(this.memail)
+                .mrole(this.mrole)
+                .maddress1(this.maddress1)
+                .maddress2(this.maddress2)
                 .build();
     } // func end
 } // class end
